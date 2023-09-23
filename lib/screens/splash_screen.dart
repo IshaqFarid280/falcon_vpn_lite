@@ -20,13 +20,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(milliseconds: 1500), () {
+    Future.delayed(Duration(milliseconds: 2000), () {
       //exit full-screen
       AdHelper.precacheInterstitialAd();
       AdHelper.precacheNativeAd();
 
       //navigate to home
-      Get.off(() => OnBoard());
+     Get.off(() => OnBoard());
       // Navigator.pushReplacement(
       //     context, MaterialPageRoute(builder: (_) => OnBoard()));
     });
@@ -41,27 +41,26 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xff02273e), Color(0xFF0071B3)], // Gradient colors
+            colors: [Color(0xff02273e), Colors.blue], // Gradient colors
           ),
         ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
               Center(
-                child: CircleAvatar(
-                  backgroundColor:Color(0xff154d72),
-                  radius: 80.w, // Use the ScreenUtil to make it responsive
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text("EYE VPN Lite",style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                      fontSize: 16.sp
-                    ),)
-                  ),
+                child: Image.asset("assets/images/eye_no_bg.png",height: 150.h,width: 150.w,),
+              ),
+
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("EYE VPN Lite",style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                    fontSize: 18.sp
+                  ),)
                 ),
               ),
               Padding(

@@ -26,7 +26,7 @@ class SliderScreen extends StatelessWidget {
             child: Text(
               title,
               style: TextStyle(
-                  color: Color(0xff02273e),
+                  color: Colors.blue,
                   fontSize: 18.sp,
                   fontWeight: FontWeight.bold),
             ),

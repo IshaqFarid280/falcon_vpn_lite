@@ -18,19 +18,19 @@ class _OnBoardState extends State<OnBoard> {
 
   final List<Widget> _pages = [
     const SliderScreen(
-        title: "Quick and Easy to Start",
-        description: "Hyip is a quick Investment platform",
-        short: "best for you",
+        title: "Quick \nand Easy to Start",
+        description: "Eye vpn lite provide fastest vpn server",
+        short: "free forever",
         image: "assets/lottie/welcome.json"),
     const SliderScreen(
-        title: "Explore all the Exciting Plans",
-        description: "Choose your plan and get start",
-        short: "your earning",
+        title: "Explore \nall the Exciting Locations",
+        description: "Select a location and get connected",
+        short: "within a single tap",
         image: "assets/lottie/explore.json"),
     const SliderScreen(
-        title: "Refer and Get Bonus",
-        description: "Refer your friends get more",
-        short: "earning opportunity",
+        title: "Unblock any \ncontent",
+        description: "Let's enjoy any content all over the world and",
+        short: "secure connection",
         image: "assets/lottie/unblock.json"),
   ];
 
@@ -74,7 +74,7 @@ class _OnBoardState extends State<OnBoard> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               color: (index == _currentPage)
-                                  ? Color(0xff02273e)
+                                  ?  Colors.blue
                                   : Get.isDarkMode? Colors.white30: Colors.black54));
                     })),
                 GestureDetector(
@@ -95,7 +95,7 @@ class _OnBoardState extends State<OnBoard> {
                       width:
                       (_currentPage == (_pages.length - 1)) ? 270.w : 270.w,
                       decoration: BoxDecoration(
-                          color: Color(0xff02273e),
+                          color: Colors.blue,
                           borderRadius: BorderRadius.circular(10)),
                       child: (_currentPage == (_pages.length - 1))
                           ? Text(

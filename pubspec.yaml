@@ -62,7 +62,8 @@ dependencies:
   avatar_glow: ^2.0.2
   flutter_screenutil: ^5.9.0
   flutter_zoom_drawer: ^3.1.1
-  curved_navigation_bar: ^1.0.3
+  share_extend: ^2.0.0
+  url_launcher: ^6.1.14
 
 dev_dependencies:
   flutter_test:

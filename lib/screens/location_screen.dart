@@ -26,6 +26,7 @@ class LocationScreen extends StatelessWidget {
       () => Scaffold(
         //app bar
         appBar: AppBar(
+          elevation: 0,
           title: Text('VPN Locations (${_controller.vpnList.length})'),
         ),
 
@@ -58,7 +59,7 @@ class LocationScreen extends StatelessWidget {
       itemCount: _controller.vpnList.length,
       physics: BouncingScrollPhysics(),
       padding: EdgeInsets.only(
-          top: mq.height * .015,
+          top: mq.height * .010,
           bottom: mq.height * .1,
           left: mq.width * .04,
           right: mq.width * .04),
@@ -73,15 +74,6 @@ class LocationScreen extends StatelessWidget {
             //lottie animation
             LottieBuilder.asset('assets/lottie/loading.json',
                 width: mq.width * .7),
-
-            //text
-            Text(
-              'Loading VPNs... 😌',
-              style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black54,
-                  fontWeight: FontWeight.bold),
-            )
           ],
         ),
       );
