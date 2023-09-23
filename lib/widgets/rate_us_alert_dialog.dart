@@ -30,10 +30,6 @@ RateUsAlertDialog(BuildContext context) {
                     Get.back();
                   }, icon: Icon(Icons.cancel_outlined)),
                 ),
-                SizedBox(height: 10.h,),
-                Text(
-                  "like_app"
-                ),
                 SizedBox(
                   height: 16.h,
                 ),
@@ -42,12 +38,6 @@ RateUsAlertDialog(BuildContext context) {
                     init: StarRatingController(),
                     builder: (_) => StarRating(starCount: 5, size: 40.0),
                   ),
-                ),
-                SizedBox(
-                  height: 16.h,
-                ),
-                Text(
-                  "thanks_feedback"
                 ),
                 SizedBox(
                   height: 20.h,
@@ -71,7 +61,7 @@ RateUsAlertDialog(BuildContext context) {
                       ),
                       child: Center(
                         child: Text(
-                          "rate_us"
+                          "Rate Us",style: TextStyle(color: Colors.white),
                         ),
                       ),
                     ),

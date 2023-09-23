@@ -22,8 +22,19 @@ customerSupportAlertDialogue(BuildContext context) {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Text(
-                  "customer_support"
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                          "Customer Support"
+                      ),
+                      IconButton(onPressed: (){
+                        Get.back();
+                      }, icon: Icon(Icons.cancel_outlined)),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 16.h,

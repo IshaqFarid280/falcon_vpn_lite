@@ -11,6 +11,8 @@ import 'package:get/get_core/src/get_main.dart';
 import '../helpers/ad_helper.dart';
 import '../helpers/config.dart';
 import '../helpers/pref.dart';
+import '../widgets/customer_support_alert_dialogue.dart';
+import '../widgets/rate_us_alert_dialog.dart';
 import '../widgets/watch_ad_dialog.dart';
 
 class MainScreen extends StatefulWidget {
@@ -120,7 +122,8 @@ class MenuScreen extends StatelessWidget {
             leading: CircleAvatar(child: Icon(Icons.support,color: Colors.white,)),
             title: Text('Customer Support',style: TextStyle(color: Colors.white,fontSize: 16.sp),),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>NetworkTestScreen()));
+              customerSupportAlertDialogue(context);
+
               // Handle network info navigation
             },
           ),
@@ -128,7 +131,7 @@ class MenuScreen extends StatelessWidget {
             leading: CircleAvatar(child: Icon(Icons.star,color: Colors.white,)),
             title: Text('Rate us',style: TextStyle(color: Colors.white,fontSize: 16.sp),),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>NetworkTestScreen()));
+              RateUsAlertDialog(context);
               // Handle network info navigation
             },
           ),
@@ -136,7 +139,7 @@ class MenuScreen extends StatelessWidget {
             leading: CircleAvatar(child: Icon(Icons.info,color: Colors.white,)),
             title: Text('About us',style: TextStyle(color: Colors.white,fontSize: 16.sp),),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>NetworkTestScreen()));
+              //Navigator.push(context, MaterialPageRoute(builder: (context)=>NetworkTestScreen()));
               // Handle network info navigation
             },
           ),
@@ -144,7 +147,7 @@ class MenuScreen extends StatelessWidget {
             leading: CircleAvatar(child: Icon(Icons.privacy_tip,color: Colors.white,)),
             title: Text('Privacy Policy',style: TextStyle(color: Colors.white,fontSize: 16.sp),),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>NetworkTestScreen()));
+              //Navigator.push(context, MaterialPageRoute(builder: (context)=>NetworkTestScreen()));
               // Handle network info navigation
             },
           ),
