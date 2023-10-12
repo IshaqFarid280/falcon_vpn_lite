@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
     splitScreenMode: true,
       builder: (context,child) {
         return GetMaterialApp(
-          title: 'Eye VPN Lite',
+          title: 'ThorVPN-Fast & Secure Proxy',
           home: SplashScreen(),
 
           //theme

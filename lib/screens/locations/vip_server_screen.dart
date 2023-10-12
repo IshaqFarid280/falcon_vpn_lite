@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../controllers/home_controller.dart';
+import '../../helpers/pref.dart';
 
 class VipServerScreen extends StatefulWidget {
    VipServerScreen({Key? key}) : super(key: key);
@@ -48,53 +49,58 @@ class _VipServerScreenState extends State<VipServerScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 10,
-                    vertical: 15
+                    vertical: 2,
                   ),
-                  child: ListTile(
-                    onTap: () async{
-                      SharedPreferences prefs = await SharedPreferences.getInstance();
+                  child: Card(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                    color: Pref.isDarkMode?Color(0xff0E2232):Colors.white,
+                    child: ListTile(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                      onTap: () async{
+                        SharedPreferences prefs = await SharedPreferences.getInstance();
 
-                      // Store the values in SharedPreferences
-                      prefs.setString('country', server.country);
-                      prefs.setString('username', server.username);
-                      prefs.setString('password', server.password);
-                      prefs.setString('config', server.config);
-                      // controller.connectToVipServer(
-                      //     server.country,
-                      //     server.username,
-                      //     server.password,
-                      //     server.config
-                      // );
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>VipServerConnectScreen()));
-                    },
-                    leading:
-                    server.image!=null?
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(5),
-                      child: Image.memory(
-                        Uint8List.fromList(
-                            Base64Decoder().convert(server.image.split(',')[1])
+                        // Store the values in SharedPreferences
+                        prefs.setString('country', server.country);
+                        prefs.setString('username', server.username);
+                        prefs.setString('password', server.password);
+                        prefs.setString('config', server.config);
+                        // controller.connectToVipServer(
+                        //     server.country,
+                        //     server.username,
+                        //     server.password,
+                        //     server.config
+                        // );
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>VipServerConnectScreen()));
+                      },
+                      leading:
+                      server.image!=null?
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(5),
+                        child: Image.memory(
+                          Uint8List.fromList(
+                              Base64Decoder().convert(server.image.split(',')[1])
+                          ),
+                          height:  40.h,
+                          width:  50.w,
+                          fit: BoxFit.cover,
                         ),
-                        height:  40.h,
-                        width:  50.w,
-                        fit: BoxFit.cover,
+                      ):
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(5),
+                        child: Image.asset("assets/images/placeholder.jpg",
+                          height:  40.h,
+                          width:  50.w,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ): 
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(5),
-                      child: Image.asset("assets/images/placeholder.jpg",
-                        height:  40.h,
-                        width:  50.w,
-                        fit: BoxFit.cover,
+                      title: Text('${server.country}'),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SizedBox(width: 4),
+                          Icon(CupertinoIcons.location_solid, color: Colors.blue),
+                        ],
                       ),
-                    ),
-                    title: Text('${server.country}'),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        SizedBox(width: 4),
-                        Icon(CupertinoIcons.location_solid, color: Colors.blue),
-                      ],
                     ),
                   ),
                 ),

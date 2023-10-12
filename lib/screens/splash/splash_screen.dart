@@ -4,10 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../helpers/ad_helper.dart';
 import '../../main.dart';
-import '../landing/home_screen.dart';
 import '../onbgoarding/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -54,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xff02273e), Colors.blue], // Gradient colors
+            colors: [Color(0xff453984), Color(0xffAC9FF5)], // Gradient colors
           ),
         ),
         child: Center(
@@ -63,16 +61,16 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
 
               Center(
-                child: Image.asset("assets/images/eye_no_bg.png",height: 150.h,width: 150.w,),
+                child: Image.asset("assets/images/eye_no_bg.png",height: 100.h,width: 100.w,),
               ),
 
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child: Text("EYE VPN Lite",style: TextStyle(
+                  child: Text("ThorVPN-Fast & Secure Proxy",style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
-                    fontSize: 18.sp
+                    fontSize: 16.sp
                   ),)
                 ),
               ),

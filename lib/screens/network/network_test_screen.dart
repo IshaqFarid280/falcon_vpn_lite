@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import '../../apis/apis.dart';
+import '../../helpers/pref.dart';
 import '../../main.dart';
 import '../../models/ip_details.dart';
 import '../../models/network_data.dart';
@@ -18,8 +17,9 @@ class NetworkTestScreen extends StatelessWidget {
     APIs.getIPDetails(ipData: ipData);
 
     return Scaffold(
-
+      backgroundColor: Pref.isDarkMode?Color(0xff022766):Colors.white,
       appBar: AppBar(
+        backgroundColor: Pref.isDarkMode?Color(0xff0E2232):Color(0xff022766),
         elevation: 0,
         centerTitle: false,
         title: Text('Network Info'),
@@ -29,11 +29,12 @@ class NetworkTestScreen extends StatelessWidget {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 10, right: 10),
         child: FloatingActionButton(
+          backgroundColor: Pref.isDarkMode?Color(0xff0E2232):Colors.blue,
             onPressed: () {
               ipData.value = IPDetails.fromJson({});
               APIs.getIPDetails(ipData: ipData);
             },
-            child: Icon(CupertinoIcons.refresh)),
+            child: Icon(CupertinoIcons.refresh, color: Colors.white)),
       ),
 
       body: Obx(

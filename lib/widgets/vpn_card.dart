@@ -20,7 +20,7 @@ class VpnCard extends StatelessWidget {
     final controller = Get.find<HomeController>();
 
     return Card(
-        elevation: 0,
+        color: Pref.isDarkMode?Color(0xff0E2232):Colors.white,
         margin: EdgeInsets.symmetric(vertical: mq.height * .01),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: InkWell(

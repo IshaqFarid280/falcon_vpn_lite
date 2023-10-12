@@ -18,7 +18,7 @@ RateUsAlertDialog(BuildContext context) {
             borderRadius: BorderRadius.circular(20.r),
           ),
           scrollable: true,
-          backgroundColor: Pref.isDarkMode? Colors.black54 : Colors.white,
+          backgroundColor: Pref.isDarkMode?Color(0xff0E2232) : Colors.white,
           alignment: Alignment.center,
           content: SizedBox(
             width: double.maxFinite,

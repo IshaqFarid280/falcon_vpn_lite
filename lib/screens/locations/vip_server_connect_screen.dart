@@ -8,6 +8,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../controllers/home_controller.dart';
 import '../../controllers/native_ad_controller.dart';
+import '../../helpers/pref.dart';
 import '../../main.dart';
 import '../../models/vpn_status.dart';
 import '../../services/vpn_engine.dart';
@@ -66,8 +67,10 @@ class _VipServerConnectScreenState extends State<VipServerConnectScreen> {
     });
 
     return Scaffold(
-      backgroundColor: Color(0xff02273e),
+      backgroundColor: Color(0xff453984),
       appBar: AppBar(
+        title: Text('${country}'),
+        backgroundColor: Pref.isDarkMode?Color(0xff0E2232):Color(0xff022766),
         leading: IconButton(
           onPressed: (){
             Navigator.pop(context);
@@ -137,18 +140,18 @@ class _VipServerConnectScreenState extends State<VipServerConnectScreen> {
                 padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: _controller.getButtonColor.withOpacity(.1)),
+                    color: Color(0xff0E2232).withOpacity(0.1)),
                 child: Container(
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: _controller.getButtonColor.withOpacity(.3)),
+                      color: Color(0xff0E2232).withOpacity(0.3)),
                   child: Container(
                     width: mq.height * .14,
                     height: mq.height * .14,
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: _controller.getButtonColor),
+                        color: Color(0xff0E2232).withOpacity(0.6)),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

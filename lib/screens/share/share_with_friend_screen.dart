@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:share_extend/share_extend.dart';
 
+import '../../helpers/pref.dart';
+
 class ShareWithFriendsScreen extends StatefulWidget {
   const ShareWithFriendsScreen({Key? key}) : super(key: key);
 
@@ -15,7 +17,9 @@ class _ShareWithFriendsScreenState extends State<ShareWithFriendsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Pref.isDarkMode?Color(0xff022766):Colors.white,
       appBar: AppBar(
+        backgroundColor: Pref.isDarkMode?Color(0xff0E2232):Color(0xff022766),
         elevation: 0,
         centerTitle: true,
         title: Text('Invite Friends'),
@@ -55,7 +59,7 @@ class _ShareWithFriendsScreenState extends State<ShareWithFriendsScreen> {
                     //shareUdhaarAppAlertDialogue(context);
                     //Get.toNamed(TransactionInformationPage.routeName);
                   },
-                  child: Text("Share Now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 15.sp),),),
+                  child: Text("Share Now",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,fontSize: 15.sp),),),
               )
             ],
           ),

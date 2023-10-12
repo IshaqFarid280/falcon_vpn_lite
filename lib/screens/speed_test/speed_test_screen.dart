@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_internet_speed_test/flutter_internet_speed_test.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
-
 import '../../components/progressBar.dart';
 import '../../constants/btnStyle.dart';
 import '../../constants/palette.dart';
@@ -71,9 +70,9 @@ class _SpeedTestScreenState extends State<SpeedTestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Pref.isDarkMode?Colors.black54:Colors.white,
-
+      backgroundColor: Pref.isDarkMode?Color(0xff022766):Colors.white,
       appBar: AppBar(
+        backgroundColor: Pref.isDarkMode?Color(0xff0E2232):Color(0xff022766),
         elevation: 0,
         centerTitle: false,
         title: Text('Internet Speed Test'),

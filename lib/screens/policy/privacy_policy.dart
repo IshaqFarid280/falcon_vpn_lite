@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../helpers/pref.dart';
+
 class PrivacyPolicy extends StatelessWidget {
   const PrivacyPolicy({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Pref.isDarkMode?Color(0xff022766):Colors.white,
       body: ListView(
         children: [
-
           Card(
+            color: Pref.isDarkMode?Color(0xff0E2232):Colors.white,
             child: Container(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.8, // Set the height to half of the screen
@@ -34,7 +37,9 @@ class PrivacyPolicy extends StatelessWidget {
                     TextStyle(fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
                       letterSpacing: 0.3
-                    ),),
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
 
 
 

@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lottie/lottie.dart';
-
 import '../../controllers/location_controller.dart';
 import '../../controllers/native_ad_controller.dart';
 import '../../helpers/ad_helper.dart';
+import '../../helpers/pref.dart';
 import '../../main.dart';
 import '../../widgets/vpn_card.dart';
 
@@ -28,7 +28,9 @@ class LocationScreen extends StatelessWidget {
         length: 2, // Number of tabs
         child: Scaffold(
           //app bar
+          backgroundColor: Pref.isDarkMode?Color(0xff022766):Colors.white,
           appBar: AppBar(
+            backgroundColor: Pref.isDarkMode?Color(0xff0E2232):Color(0xff022766),
             elevation: 0,
             title: Text('VPN Locations (${_controller.vpnList.length})'),
             bottom: TabBar(
@@ -98,8 +100,7 @@ class LocationScreen extends StatelessWidget {
   _noVPNFound() => Center(
         child: Text(
           'VPNs Server Not Found!',
-          style: TextStyle(
-              fontSize: 18, color: Colors.black54, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 18, color: Colors.black54, fontWeight: FontWeight.bold),
         ),
       );
 }

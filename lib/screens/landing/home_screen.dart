@@ -1,22 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-
 import 'package:get/get.dart';
-
 import '../../controllers/home_controller.dart';
-import '../../helpers/ad_helper.dart';
-import '../../helpers/config.dart';
 import '../../helpers/pref.dart';
 import '../../main.dart';
-
 import '../../models/vpn_status.dart';
 import '../../services/vpn_engine.dart';
 import '../../widgets/count_down_timer.dart';
 import '../../widgets/home_card.dart';
-import '../../widgets/watch_ad_dialog.dart';
 import '../locations/location_screen.dart';
-import '../network/network_test_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -34,13 +27,14 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       //body
+      backgroundColor: Pref.isDarkMode?Color(0xff453984):Colors.white,
       body: SingleChildScrollView(
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start, children: [
           //vpn button
           Container(
-            color: Color(0xff02273e),
+            color: Color(0xff453984),
             height: 500,
             width: double.infinity,
             child:    Obx(() => Column(
@@ -53,6 +47,7 @@ class HomeScreen extends StatelessWidget {
           _changeLocation(context),
           
           Card(
+            color: Pref.isDarkMode?Color(0xff0E2232):Color(0xff022766),
             elevation: 0,
             child: Container(
               child: Padding(
@@ -77,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                               width: 80,
                               child: CircleAvatar(
                                 radius: 25,
-                                backgroundColor: Colors.blue,
+                                backgroundColor: Color(0xff0E2232),
                                 child: _controller.vpn.value.countryLong.isEmpty
                                     ? Icon(Icons.vpn_lock_rounded,
                                     size: 30, color: Colors.white)
@@ -97,6 +92,7 @@ class HomeScreen extends StatelessWidget {
                                     ? 'Country'
                                     : _controller.vpn.value.countryLong,style: TextStyle(
                                     fontSize: 18,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.w500
                                 ),),
                                 Padding(
@@ -104,6 +100,7 @@ class HomeScreen extends StatelessWidget {
                                   child: Text("FREE",style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
+                                    color: Colors.white,
                                   ),),
                                 ),
                               ],
@@ -119,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                                   : '${_controller.vpn.value.ping} ms',
                               icon: CircleAvatar(
                                 radius: 15,
-                                backgroundColor: Colors.orange,
+                                backgroundColor: Color(0xff453984),
                                 child: Icon(Icons.equalizer_rounded,
                                     size: 18,color: Colors.white,),
                               )),
@@ -169,18 +166,18 @@ class HomeScreen extends StatelessWidget {
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: _controller.getButtonColor.withOpacity(.1)),
+                      color: Color(0xff0E2232).withOpacity(.1)),
                   child: Container(
                     padding: EdgeInsets.all(16),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: _controller.getButtonColor.withOpacity(.3)),
+                        color: Color(0xff0E2232).withOpacity(.3)),
                     child: Container(
                       width: mq.height * .14,
                       height: mq.height * .14,
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: _controller.getButtonColor),
+                          color: Color(0xff0E2232).withOpacity(0.6)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -217,7 +214,7 @@ class HomeScreen extends StatelessWidget {
                   EdgeInsets.only(top: mq.height * .015, bottom: mq.height * .02),
               padding: EdgeInsets.symmetric(vertical: 6, horizontal: 16),
               decoration: BoxDecoration(
-                  color: Colors.blue, borderRadius: BorderRadius.circular(15)),
+                  color: Color(0xff0E2232), borderRadius: BorderRadius.circular(15)),
               child: Text(
                 _controller.vpnState.value == VpnEngine.vpnDisconnected
                     ? 'Not Connected'
@@ -240,7 +237,7 @@ class HomeScreen extends StatelessWidget {
                           subtitle: 'DOWNLOAD',
                           icon: CircleAvatar(
                             radius: 20,
-                            backgroundColor: Colors.lightGreen,
+                            backgroundColor: Colors.green,
                             child: Icon(Icons.arrow_downward_rounded,
                                 size: 20, color: Colors.white),
                           )),
@@ -252,7 +249,7 @@ class HomeScreen extends StatelessWidget {
                           subtitle: 'UPLOAD',
                           icon: CircleAvatar(
                             radius: 20,
-                            backgroundColor: Colors.blue,
+                            backgroundColor: Color(0xff0E2232),
                             child: Icon(Icons.arrow_upward_rounded,
                                 size: 20, color: Colors.white),
                           )),
@@ -269,7 +266,7 @@ class HomeScreen extends StatelessWidget {
         child: InkWell(
   onTap: () => Get.to(() => LocationScreen(),transition: Transition.rightToLeft),
   child: Container(
-      color: Theme.of(context).bottomNav,
+      color: Pref.isDarkMode?Color(0xff0E2232):Color(0xff022766),
       padding: EdgeInsets.symmetric(horizontal: mq.width * .04),
       height: 60,
       child: Row(
@@ -296,7 +293,7 @@ class HomeScreen extends StatelessWidget {
           CircleAvatar(
             backgroundColor: Colors.white,
             child: Icon(Icons.keyboard_arrow_right_rounded,
-                color: Colors.blue, size: 26),
+                color: Color(0xff0E2232), size: 26),
           )
         ],
       )),
