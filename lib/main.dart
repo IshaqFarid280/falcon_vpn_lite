@@ -5,7 +5,6 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 import 'helpers/ad_helper.dart';
 import 'helpers/config.dart';
 import 'helpers/pref.dart';
