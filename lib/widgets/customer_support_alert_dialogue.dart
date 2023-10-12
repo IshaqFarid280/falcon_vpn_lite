@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../helpers/pref.dart';
+
 customerSupportAlertDialogue(BuildContext context) {
   // final giveMoneyController = Get.find<TransactionInformationPageController>();
 
@@ -15,7 +17,7 @@ customerSupportAlertDialogue(BuildContext context) {
             borderRadius: BorderRadius.circular(20.r),
           ),
           scrollable: true,
-          backgroundColor: Colors.white,
+          backgroundColor: Pref.isDarkMode? Colors.black54 : Colors.white,
           alignment: Alignment.center,
           content: SizedBox(
             width: double.maxFinite,
@@ -28,7 +30,9 @@ customerSupportAlertDialogue(BuildContext context) {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                          "Customer Support"
+                          "Customer Support",style: TextStyle(
+                        color: Pref.isDarkMode? Colors.white : Colors.black54
+                      ),
                       ),
                       IconButton(onPressed: (){
                         Get.back();

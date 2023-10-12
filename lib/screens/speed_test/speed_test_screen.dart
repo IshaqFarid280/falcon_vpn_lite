@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_internet_speed_test/flutter_internet_speed_test.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
-import '../components/progressBar.dart';
-import '../constants/btnStyle.dart';
-import '../constants/palette.dart';
+import '../../components/progressBar.dart';
+import '../../constants/btnStyle.dart';
+import '../../constants/palette.dart';
+import '../../helpers/pref.dart';
 
 class SpeedTestScreen extends StatefulWidget {
   const SpeedTestScreen({Key? key}) : super(key: key);
@@ -70,7 +71,7 @@ class _SpeedTestScreenState extends State<SpeedTestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+        backgroundColor: Pref.isDarkMode?Colors.black54:Colors.white,
 
       appBar: AppBar(
         elevation: 0,
@@ -103,7 +104,6 @@ class _SpeedTestScreenState extends State<SpeedTestScreen> {
                           Text('Download',style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
-                            color: Colors.black
                           ),),
                           SizedBox(height: 4,),
                           Text('$_downloadRate $_unitText'),
@@ -123,7 +123,6 @@ class _SpeedTestScreenState extends State<SpeedTestScreen> {
                           Text('Upload',style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
-                              color: Colors.black
                           ),),
                           SizedBox(height: 4,),
                           Text('$_uploadRate $_unitText'),
@@ -144,7 +143,6 @@ class _SpeedTestScreenState extends State<SpeedTestScreen> {
                   textStyle: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
                   ),
                 ),
                 axes: <RadialAxis>[
@@ -152,7 +150,6 @@ class _SpeedTestScreenState extends State<SpeedTestScreen> {
                     minimum: 0,
                     maximum: 150,
                     axisLabelStyle: GaugeTextStyle(
-                      color: Colors.black,
                     ),
                     ranges: <GaugeRange>[
                       GaugeRange(
@@ -181,7 +178,6 @@ class _SpeedTestScreenState extends State<SpeedTestScreen> {
                       NeedlePointer(
                         value: _needlePointerValue,
                         enableAnimation: true,
-                        needleColor: Colors.black,
                       ),
                     ],
                     annotations: <GaugeAnnotation>[
@@ -192,7 +188,6 @@ class _SpeedTestScreenState extends State<SpeedTestScreen> {
                             style: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
                             ),
                           ),
                         ),

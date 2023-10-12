@@ -1,13 +1,14 @@
-import 'package:eye_vpn_lite/screens/bottom_navbar_screen.dart';
+import 'package:eye_vpn_lite/screens/drawer/animated_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import '../helpers/ad_helper.dart';
-import '../main.dart';
-import 'home_screen.dart';
-import 'onbgoarding/onboarding.dart';
+import '../../helpers/ad_helper.dart';
+import '../../main.dart';
+import '../landing/home_screen.dart';
+import '../onbgoarding/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,17 +21,29 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(milliseconds: 2000), () {
+
+    Future.delayed(Duration(milliseconds: 2000), () async{
       //exit full-screen
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+
       AdHelper.precacheInterstitialAd();
       AdHelper.precacheNativeAd();
 
       //navigate to home
-     Get.off(() => OnBoard());
+
+      if(prefs.getString('firstTime')=='false'){
+        Get.off(() => AnimatedDrawerScreen());
+      }
+      else{
+        Get.off(() => OnBoard());
+      }
+
+
       // Navigator.pushReplacement(
       //     context, MaterialPageRoute(builder: (_) => OnBoard()));
     });
   }
+
 
   @override
   Widget build(BuildContext context) {

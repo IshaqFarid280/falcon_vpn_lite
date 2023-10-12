@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_vpn/flutter_vpn.dart';
 import 'package:lottie/lottie.dart';
 import 'package:share_extend/share_extend.dart';
 
@@ -32,15 +31,15 @@ class _ShareWithFriendsScreenState extends State<ShareWithFriendsScreen> {
               Lottie.asset("assets/lottie/share.json",height: 300.h,width: 300.w),
               SizedBox(height: 10.h,),
               Text("Share VPN Using Experience",style: TextStyle(
-                fontSize: 18.sp,color: Colors.black54
+                fontSize: 18.sp,
               ),),
               SizedBox(height: 15.h,),
               Text("Help your friends getting secure connection over the world and unlock Restricted content and enjoy streaming service from any locations using Eye VPN Lite.",
               textAlign: TextAlign.justify,
                 style: TextStyle(
                 fontSize: 12.sp,
-                color: Colors.black54,
-                fontWeight: FontWeight.w400
+                letterSpacing: 0.3,
+                fontWeight: FontWeight.w300
               ),),
               SizedBox(height: 50.h,),
               
@@ -56,7 +55,7 @@ class _ShareWithFriendsScreenState extends State<ShareWithFriendsScreen> {
                     //shareUdhaarAppAlertDialogue(context);
                     //Get.toNamed(TransactionInformationPage.routeName);
                   },
-                  child: Text("Share Now",style: TextStyle(color: Colors.white),),),
+                  child: Text("Share Now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 15.sp),),),
               )
             ],
           ),

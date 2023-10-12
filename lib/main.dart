@@ -1,5 +1,7 @@
+import 'package:eye_vpn_lite/apis/vip_server_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -7,13 +9,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'helpers/ad_helper.dart';
 import 'helpers/config.dart';
 import 'helpers/pref.dart';
-import 'screens/splash_screen.dart';
+import 'screens/splash/splash_screen.dart';
 
 //global object for accessing device screen size
 late Size mq;
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  //WidgetsFlutterBinding.ensureInitialized();
+
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   //enter full-screen
   //SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
@@ -28,11 +33,14 @@ Future<void> main() async {
 
   await AdHelper.initAds();
 
-  runApp(const MyApp());
+  runApp( MyApp());
+  FlutterNativeSplash.remove();
 }
 
+
+
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

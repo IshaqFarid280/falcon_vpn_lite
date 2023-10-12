@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../helpers/pref.dart';
+
 
 class StarRatingController extends GetxController {
   RxDouble rating = 0.0.obs;
@@ -34,7 +36,7 @@ class StarRating extends GetView<StarRatingController> {
               isFilled ? Icons.star : Icons.star_border,
               color: isFilled
                   ? Colors.orange
-                  : Colors.black54,
+                  :  Pref.isDarkMode? Colors.white70 : Colors.black54,
               size: size,
             ),
           ),

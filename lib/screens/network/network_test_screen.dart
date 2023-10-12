@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../apis/apis.dart';
-import '../main.dart';
-import '../models/ip_details.dart';
-import '../models/network_data.dart';
-import '../widgets/network_card.dart';
+import '../../apis/apis.dart';
+import '../../main.dart';
+import '../../models/ip_details.dart';
+import '../../models/network_data.dart';
+import '../../widgets/network_card.dart';
 
 class NetworkTestScreen extends StatelessWidget {
   const NetworkTestScreen({super.key});

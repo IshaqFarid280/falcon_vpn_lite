@@ -1,32 +1,33 @@
-import 'package:eye_vpn_lite/screens/home_screen.dart';
-import 'package:eye_vpn_lite/screens/network_test_screen.dart';
-import 'package:eye_vpn_lite/screens/share_with_friend_screen.dart';
-import 'package:eye_vpn_lite/screens/speed_test_screen.dart';
+import 'package:eye_vpn_lite/screens/landing/home_screen.dart';
+import 'package:eye_vpn_lite/screens/network/network_test_screen.dart';
+import 'package:eye_vpn_lite/screens/policy/privacy_policy.dart';
+import 'package:eye_vpn_lite/screens/share/share_with_friend_screen.dart';
+import 'package:eye_vpn_lite/screens/speed_test/speed_test_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../helpers/ad_helper.dart';
-import '../helpers/config.dart';
-import '../helpers/pref.dart';
-import '../widgets/customer_support_alert_dialogue.dart';
-import '../widgets/rate_us_alert_dialog.dart';
-import '../widgets/watch_ad_dialog.dart';
+import '../../helpers/ad_helper.dart';
+import '../../helpers/config.dart';
+import '../../helpers/pref.dart';
+import '../../widgets/customer_support_alert_dialogue.dart';
+import '../../widgets/rate_us_alert_dialog.dart';
+import '../../widgets/watch_ad_dialog.dart';
 
-class MainScreen extends StatefulWidget {
+class AnimatedDrawerScreen extends StatefulWidget {
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _AnimatedDrawerScreenState createState() => _AnimatedDrawerScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _AnimatedDrawerScreenState extends State<AnimatedDrawerScreen> {
   final ZoomDrawerController zoomDrawerController = ZoomDrawerController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Pref.isDarkMode?Colors.black54:Colors.blue,
       appBar: AppBar(
         elevation: 0,
         centerTitle: false,
@@ -62,6 +63,7 @@ class _MainScreenState extends State<MainScreen> {
                 Icons.brightness_medium,
                 size: 26,
               )),
+
         ],
       ),
       body: ZoomDrawer(
@@ -82,13 +84,13 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: Pref.isDarkMode?Colors.black54:Colors.blue,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
           ListTile(
             leading: CircleAvatar(child: Icon(Icons.home,color: Colors.white,)),
-            title: Text('Home',style: TextStyle(color: Colors.white,fontSize: 16.sp),),
+            title: Text('Home',style: TextStyle(color: Colors.greenAccent,fontSize: 16.sp),),
             onTap: () {
 
               // Handle network info navigation
@@ -136,19 +138,17 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: CircleAvatar(child: Icon(Icons.info,color: Colors.white,)),
-            title: Text('About us',style: TextStyle(color: Colors.white,fontSize: 16.sp),),
-            onTap: () {
-              //Navigator.push(context, MaterialPageRoute(builder: (context)=>NetworkTestScreen()));
-              // Handle network info navigation
-            },
-          ),
-          ListTile(
             leading: CircleAvatar(child: Icon(Icons.privacy_tip,color: Colors.white,)),
             title: Text('Privacy Policy',style: TextStyle(color: Colors.white,fontSize: 16.sp),),
             onTap: () {
               //Navigator.push(context, MaterialPageRoute(builder: (context)=>NetworkTestScreen()));
               // Handle network info navigation
+              showBottomSheet(
+                context: context,
+                builder: (context) {
+                  return const PrivacyPolicy();
+                },
+              );
             },
           ),
 

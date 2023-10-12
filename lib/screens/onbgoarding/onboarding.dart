@@ -1,8 +1,9 @@
-import 'package:eye_vpn_lite/screens/bottom_navbar_screen.dart';
+import 'package:eye_vpn_lite/screens/drawer/animated_drawer.dart';
 import 'package:eye_vpn_lite/screens/onbgoarding/slider_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoard extends StatefulWidget {
   static const String routeName = "/onboard";
@@ -28,7 +29,7 @@ class _OnBoardState extends State<OnBoard> {
         short: "within a single tap",
         image: "assets/lottie/explore.json"),
     const SliderScreen(
-        title: "Unblock any \ncontent",
+        title: "Unblock Restricted \ncontent",
         description: "Let's enjoy any content all over the world and",
         short: "secure connection",
         image: "assets/lottie/unblock.json"),
@@ -78,10 +79,15 @@ class _OnBoardState extends State<OnBoard> {
                                   : Get.isDarkMode? Colors.white30: Colors.black54));
                     })),
                 GestureDetector(
-                  onTap: () {
+                  onTap: () async{
+
+                      SharedPreferences prefs = await SharedPreferences.getInstance();
+                      await prefs.setString('firstTime', 'false');
+
+
                     (_currentPage == (_pages.length - 1))
                         ?
-                   Get.offAll(MainScreen())
+                   Get.offAll(AnimatedDrawerScreen())
                         : _controller.nextPage(
                         duration: const Duration(milliseconds: 800),
                         curve: Curves.easeInOutQuint);

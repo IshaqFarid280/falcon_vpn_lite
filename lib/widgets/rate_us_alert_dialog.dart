@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../controllers/rate_us_controller.dart';
+import '../helpers/pref.dart';
 
 
 RateUsAlertDialog(BuildContext context) {
@@ -17,7 +18,7 @@ RateUsAlertDialog(BuildContext context) {
             borderRadius: BorderRadius.circular(20.r),
           ),
           scrollable: true,
-          backgroundColor: Colors.white,
+          backgroundColor: Pref.isDarkMode? Colors.black54 : Colors.white,
           alignment: Alignment.center,
           content: SizedBox(
             width: double.maxFinite,

@@ -28,7 +28,7 @@ class SliderScreen extends StatelessWidget {
               style: TextStyle(
                   color: Colors.blue,
                   fontSize: 18.sp,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.w500),
             ),
           ),
           Padding(
@@ -36,20 +36,20 @@ class SliderScreen extends StatelessWidget {
             child: Center(
               child: Lottie.asset(
                 image,
-                height: 300.h,
+                height: 250.h,
                 fit: BoxFit.cover,
               ),
             ),
           ),
 
           Padding(
-            padding: EdgeInsets.only(top: 40.h),
+            padding: EdgeInsets.only(top: 50.h),
             child: Center(
               child: Text(
                 description,
                 style: TextStyle(
                   fontFamily: 'Poppins-Light',
-                  color: Colors.grey,
+                  color: Colors.black54,
                   fontSize: 16.sp,
                 ),
               ),
@@ -62,7 +62,7 @@ class SliderScreen extends StatelessWidget {
                 short,
                 style: TextStyle(
                   fontFamily: 'Poppins-Light',
-                  color: Colors.grey,
+                  color: Colors.black54,
                   fontSize: 16.sp,
                 ),
               ),

@@ -4,19 +4,19 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/home_controller.dart';
-import '../helpers/ad_helper.dart';
-import '../helpers/config.dart';
-import '../helpers/pref.dart';
-import '../main.dart';
+import '../../controllers/home_controller.dart';
+import '../../helpers/ad_helper.dart';
+import '../../helpers/config.dart';
+import '../../helpers/pref.dart';
+import '../../main.dart';
 
-import '../models/vpn_status.dart';
-import '../services/vpn_engine.dart';
-import '../widgets/count_down_timer.dart';
-import '../widgets/home_card.dart';
-import '../widgets/watch_ad_dialog.dart';
-import 'location_screen.dart';
-import 'network_test_screen.dart';
+import '../../models/vpn_status.dart';
+import '../../services/vpn_engine.dart';
+import '../../widgets/count_down_timer.dart';
+import '../../widgets/home_card.dart';
+import '../../widgets/watch_ad_dialog.dart';
+import '../locations/location_screen.dart';
+import '../network/network_test_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -97,7 +97,6 @@ class HomeScreen extends StatelessWidget {
                                     ? 'Country'
                                     : _controller.vpn.value.countryLong,style: TextStyle(
                                     fontSize: 18,
-                                    color: Colors.black54,
                                     fontWeight: FontWeight.w500
                                 ),),
                                 Padding(
@@ -105,7 +104,6 @@ class HomeScreen extends StatelessWidget {
                                   child: Text("FREE",style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
-                                      color: Colors.black54
                                   ),),
                                 ),
                               ],
@@ -116,7 +114,6 @@ class HomeScreen extends StatelessWidget {
                         //ping time
                         Expanded(
                           child: HomeCard(
-                              color: Colors.black45,
                               title: _controller.vpn.value.countryLong.isEmpty
                                   ? '100 ms'
                                   : '${_controller.vpn.value.ping} ms',
@@ -124,7 +121,7 @@ class HomeScreen extends StatelessWidget {
                                 radius: 15,
                                 backgroundColor: Colors.orange,
                                 child: Icon(Icons.equalizer_rounded,
-                                    size: 18, color: Colors.white),
+                                    size: 18,color: Colors.white,),
                               )),
                         ),
 
@@ -270,7 +267,7 @@ class HomeScreen extends StatelessWidget {
   Widget _changeLocation(BuildContext context) => Semantics(
         button: true,
         child: InkWell(
-  onTap: () => Get.to(() => LocationScreen()),
+  onTap: () => Get.to(() => LocationScreen(),transition: Transition.rightToLeft),
   child: Container(
       color: Theme.of(context).bottomNav,
       padding: EdgeInsets.symmetric(horizontal: mq.width * .04),
@@ -287,8 +284,8 @@ class HomeScreen extends StatelessWidget {
           Text(
             'Change Location',
             style: TextStyle(
-                color: Colors.white,
                 fontSize: 18,
+                color: Colors.white,
                 fontWeight: FontWeight.w500),
           ),
 

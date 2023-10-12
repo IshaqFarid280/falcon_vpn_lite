@@ -35,24 +35,15 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  # Getx for state management
   get: ^4.6.5
-  # For API Call
   http: ^0.13.5
-  # Converting CSV data to List
   csv: ^5.0.2
-  # For Lottie Animation
   lottie: ^2.3.2
   flutter_internet_speed_test: ^1.4.0
-  flutter_vpn:
-  # For storing data (in local storage)
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  # For integrating ads
   google_mobile_ads: ^3.0.0
-  # For firebase
   firebase_core: ^2.14.0
-  # For Remote Config
   firebase_remote_config: ^4.2.3
   syncfusion_flutter_gauges:
   percent_indicator:
@@ -64,11 +55,29 @@ dependencies:
   flutter_zoom_drawer: ^3.1.1
   share_extend: ^2.0.0
   url_launcher: ^6.1.14
+  shared_preferences: ^2.2.1
+  flutter_native_splash: ^2.3.2
+  rename: ^2.1.1
+  flutter_launcher_icons: ^0.13.1
+  dio: ^4.0.6
+  cached_network_image: ^3.3.0
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+flutter_native_splash:
+  android: true
+  ios: true
+  color: 42a5f5 # background color
+  image: assets/images/eye_no_bg.png # path to your splash screen image
+  image_background_color: Colors.blue # background color behind the image
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/eye_vpn_logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your

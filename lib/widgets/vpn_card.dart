@@ -20,7 +20,7 @@ class VpnCard extends StatelessWidget {
     final controller = Get.find<HomeController>();
 
     return Card(
-        elevation: 5,
+        elevation: 0,
         margin: EdgeInsets.symmetric(vertical: mq.height * .01),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: InkWell(
@@ -82,7 +82,7 @@ class VpnCard extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         color: Theme.of(context).lightText)),
                 SizedBox(width: 4),
-                Icon(CupertinoIcons.person_3, color: Colors.blue),
+                Icon(CupertinoIcons.location_solid, color: Colors.blue),
               ],
             ),
           ),

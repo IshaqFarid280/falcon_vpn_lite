@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.app.eyevpnlite" "\0"
-            VALUE "FileDescription", "eye_vpn_lite" "\0"
+            VALUE "FileDescription", "EYE VPN Lite" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "eye_vpn_lite" "\0"
+            VALUE "InternalName", "EYE VPN Lite" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.app.eyevpnlite. All rights reserved." "\0"
             VALUE "OriginalFilename", "eye_vpn_lite.exe" "\0"
-            VALUE "ProductName", "eye_vpn_lite" "\0"
+            VALUE "ProductName", "EYE VPN Lite" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

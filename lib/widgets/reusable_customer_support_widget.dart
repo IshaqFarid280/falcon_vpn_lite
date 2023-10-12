@@ -1,3 +1,4 @@
+import 'package:eye_vpn_lite/helpers/pref.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -43,6 +44,7 @@ class ReusableCustomerSupportWidget extends StatelessWidget {
             ),
             Text(
               "$title",
+              style: TextStyle(color: Colors.black54),
             ),
           ],
         ),
