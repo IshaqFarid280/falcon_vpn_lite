@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eye_vpn_lite/apis/vip_server_api.dart';
 import 'package:eye_vpn_lite/screens/locations/vip_server_connect_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,8 +7,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shimmer/shimmer.dart';
-
 import '../../controllers/home_controller.dart';
 
 class VipServerScreen extends StatefulWidget {
@@ -79,16 +75,16 @@ class _VipServerScreenState extends State<VipServerScreen> {
                         Uint8List.fromList(
                             Base64Decoder().convert(server.image.split(',')[1])
                         ),
-                        height:  50.h,
-                        width:  60.w,
+                        height:  40.h,
+                        width:  50.w,
                         fit: BoxFit.cover,
                       ),
                     ): 
                     ClipRRect(
                       borderRadius: BorderRadius.circular(5),
                       child: Image.asset("assets/images/placeholder.jpg",
-                        height:  60.h,
-                        width:  60.w,
+                        height:  40.h,
+                        width:  50.w,
                         fit: BoxFit.cover,
                       ),
                     ),
