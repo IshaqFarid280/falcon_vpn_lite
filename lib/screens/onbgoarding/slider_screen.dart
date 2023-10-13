@@ -17,20 +17,20 @@ class SliderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 44.h, left: 20.w, right: 20.w),
+      padding: EdgeInsets.only(top: 100.h, left: 20.w, right: 20.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(top: 40.h,left: 16),
-            child: Text(
-              title,
-              style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w500),
-            ),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.only(top: 40.h,left: 16),
+          //   child: Text(
+          //     title,
+          //     style: TextStyle(
+          //         color: Colors.blue,
+          //         fontSize: 18.sp,
+          //         fontWeight: FontWeight.w500),
+          //   ),
+          // ),
           Padding(
             padding: EdgeInsets.only(top: 50.h),
             child: Center(
@@ -46,28 +46,29 @@ class SliderScreen extends StatelessWidget {
             padding: EdgeInsets.only(top: 50.h),
             child: Center(
               child: Text(
-                description,
+                "$description $short",
                 style: TextStyle(
                   fontFamily: 'Poppins-Light',
                   color: Colors.black54,
                   fontSize: 16.sp,
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 2.h),
-            child: Center(
-              child: Text(
-                short,
-                style: TextStyle(
-                  fontFamily: 'Poppins-Light',
-                  color: Colors.black54,
-                  fontSize: 16.sp,
-                ),
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.only(top: 2.h),
+          //   child: Center(
+          //     child: Text(
+          //       short,
+          //       style: TextStyle(
+          //         fontFamily: 'Poppins-Light',
+          //         color: Colors.black54,
+          //         fontSize: 16.sp,
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

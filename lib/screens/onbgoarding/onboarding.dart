@@ -20,7 +20,7 @@ class _OnBoardState extends State<OnBoard> {
   final List<Widget> _pages = [
     const SliderScreen(
         title: "Quick \nand Easy to Start",
-        description: "Eye vpn lite provide fastest vpn server",
+        description: "ThorVPN-Fast & Secure Proxy provide fastest vpn server",
         short: "free forever",
         image: "assets/lottie/welcome.json"),
     const SliderScreen(
@@ -75,7 +75,7 @@ class _OnBoardState extends State<OnBoard> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               color: (index == _currentPage)
-                                  ?  Colors.blue
+                                  ?  Color(0xff453984)
                                   : Get.isDarkMode? Colors.white30: Colors.black54));
                     })),
                 GestureDetector(
@@ -101,7 +101,7 @@ class _OnBoardState extends State<OnBoard> {
                       width:
                       (_currentPage == (_pages.length - 1)) ? 270.w : 270.w,
                       decoration: BoxDecoration(
-                          color: Colors.blue,
+                          color: Color(0xff453984),
                           borderRadius: BorderRadius.circular(10)),
                       child: (_currentPage == (_pages.length - 1))
                           ? Text(

@@ -69,9 +69,9 @@ dev_dependencies:
 flutter_native_splash:
   android: true
   ios: true
-  color: 42a5f5 # background color
+  color: 453984 # background color
   image: assets/images/eye_no_bg.png # path to your splash screen image
-  image_background_color: Colors.blue # background color behind the image
+  image_background_color: Color(0xff453984), # background color behind the image
 
 flutter_launcher_icons:
   android: "launcher_icon"

@@ -69,7 +69,9 @@ class _VipServerConnectScreenState extends State<VipServerConnectScreen> {
     return Scaffold(
       backgroundColor: Color(0xff453984),
       appBar: AppBar(
-        title: Text('${country}'),
+        centerTitle: false,
+        titleSpacing: 5,
+        title: Text('${country} server'),
         backgroundColor: Pref.isDarkMode?Color(0xff0E2232):Color(0xff022766),
         leading: IconButton(
           onPressed: (){

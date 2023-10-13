@@ -1,7 +1,10 @@
+import 'package:eye_vpn_lite/controllers/home_ads_controller.dart';
+import 'package:eye_vpn_lite/helpers/home_ads.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../../controllers/home_controller.dart';
 import '../../helpers/pref.dart';
 import '../../main.dart';
@@ -11,125 +14,159 @@ import '../../widgets/count_down_timer.dart';
 import '../../widgets/home_card.dart';
 import '../locations/location_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   final _controller = Get.put(HomeController());
 
   final ZoomDrawerController zoomDrawerController = ZoomDrawerController();
 
+  final homeAds = Get.put(HomeAdsController());
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     ///Add listener to update vpn state
+    ///
+    homeAds.ad = HomeAds.loadNativeAd(adController: homeAds);
+    ///
     VpnEngine.vpnStageSnapshot().listen((event) {
       _controller.vpnState.value = event;
     });
 
     return Scaffold(
+
       //body
       backgroundColor: Pref.isDarkMode?Color(0xff453984):Colors.white,
-      body: SingleChildScrollView(
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start, children: [
-          //vpn button
+      body: Stack(
+        children: [
+
           Container(
-            color: Color(0xff453984),
-            height: 500,
-            width: double.infinity,
-            child:    Obx(() => Column(
-              children: [
-                _vpnButton(),
-              ],
-            )),
-          ),
+           padding: EdgeInsets.only(bottom: 90),
+            child: ListView(
+                children: [
+              //vpn button
+              Container(
+                color: Color(0xff453984),
+                height: 500,
+                width: double.infinity,
+                child:    Obx(() => Column(
+                  children: [
+                    _vpnButton(),
+                  ],
+                )),
+              ),
 
-          _changeLocation(context),
-          
-          Card(
-            color: Pref.isDarkMode?Color(0xff0E2232):Color(0xff022766),
-            elevation: 0,
-            child: Container(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 10
-                ),
-                child:
-                    Obx(() =>  Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
+              _changeLocation(context),
+
+              Card(
+                color: Pref.isDarkMode?Color(0xff0E2232):Color(0xff022766),
+                elevation: 0,
+                child: Container(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 10
+                    ),
+                    child:
+                        Obx(() =>  Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              padding: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  color: Colors.grey.shade200
-                              ),
-                              height: 50,
-                              width: 80,
-                              child: CircleAvatar(
-                                radius: 25,
-                                backgroundColor: Color(0xff0E2232),
-                                child: _controller.vpn.value.countryLong.isEmpty
-                                    ? Icon(Icons.vpn_lock_rounded,
-                                    size: 30, color: Colors.white)
-                                    : null,
-                                backgroundImage: _controller.vpn.value.countryLong.isEmpty
-                                    ? null
-                                    : AssetImage(
-                                    'assets/flags/${_controller.vpn.value.countryShort.toLowerCase()}.png'),
-                              ),
-                            ),
-                            SizedBox(width: 10,),
-
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            Row(
                               children: [
-                                Text(_controller.vpn.value.countryLong.isEmpty
-                                    ? 'Country'
-                                    : _controller.vpn.value.countryLong,style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500
-                                ),),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text("FREE",style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                  ),),
+                                Container(
+                                  padding: EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: Colors.grey.shade200
+                                  ),
+                                  height: 50,
+                                  width: 80,
+                                  child: CircleAvatar(
+                                    radius: 25,
+                                    backgroundColor: Color(0xff0E2232),
+                                    child: _controller.vpn.value.countryLong.isEmpty
+                                        ? Icon(Icons.vpn_lock_rounded,
+                                        size: 30, color: Colors.white)
+                                        : null,
+                                    backgroundImage: _controller.vpn.value.countryLong.isEmpty
+                                        ? null
+                                        : AssetImage(
+                                        'assets/flags/${_controller.vpn.value.countryShort.toLowerCase()}.png'),
+                                  ),
+                                ),
+                                SizedBox(width: 10,),
+
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(_controller.vpn.value.countryLong.isEmpty
+                                        ? 'Country'
+                                        : _controller.vpn.value.countryLong,style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500
+                                    ),),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text("FREE",style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
+
+                            //ping time
+                            Expanded(
+                              child: HomeCard(
+                                  title: _controller.vpn.value.countryLong.isEmpty
+                                      ? '100 ms'
+                                      : '${_controller.vpn.value.ping} ms',
+                                  icon: CircleAvatar(
+                                    radius: 15,
+                                    backgroundColor: Color(0xff453984),
+                                    child: Icon(Icons.equalizer_rounded,
+                                        size: 18,color: Colors.white,),
+                                  )),
+                            ),
+
                           ],
-                        ),
+                        ), ),
 
-                        //ping time
-                        Expanded(
-                          child: HomeCard(
-                              title: _controller.vpn.value.countryLong.isEmpty
-                                  ? '100 ms'
-                                  : '${_controller.vpn.value.ping} ms',
-                              icon: CircleAvatar(
-                                radius: 15,
-                                backgroundColor: Color(0xff453984),
-                                child: Icon(Icons.equalizer_rounded,
-                                    size: 18,color: Colors.white,),
-                              )),
-                        ),
+                  ),
+                ),
+              )
 
-                      ],
-                    ), ),
-
-              ),
-            ),
-          )
-
-        ]),
+            ]),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Center(child: homeAds.ad != null && homeAds.adLoaded.isTrue
+                ? StatefulBuilder(
+                  builder: (context,setState) {
+                    return Container(
+                    height: 85, child: AdWidget(ad: homeAds.ad!));
+                  }
+                )
+                : null,))
+        ],
       ),
     );
   }
